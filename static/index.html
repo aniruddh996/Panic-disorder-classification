@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Panic Disorder Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Panic Disorder Prediction</h1>
+    <form action="{{ url_for('predict') }}" method="POST">
+        {% for column, question in questions.items() %}
+        <div class="question">
+            <label for="{{ column }}">{{ question }}</label>
+            <select name="{{ column }}" id="{{ column }}">
+                <option value="" disabled selected>Select an option</option>
+                {% if column == 'Age' %}
+                <option value="18-30">18-30</option>
+                <option value="31-45">31-45</option>
+                <option value="46-60">46-60</option>
+                <option value="61+">61+</option>
+                {% elif column == 'Gender' %}
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                {% elif column in ['Family History', 'Personal History', 'Current Stressors', 'Severity', 'Impact on Life', 'Demographics', 'Substance Use', 'Social Support'] %}
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                {% elif column == 'Symptoms' %}
+                <option value="Panic attacks">Panic attacks</option>
+                <option value="Shortness of breath">Shortness of breath</option>
+                <option value="Chest pain">Chest pain</option>
+                <!-- Add more symptom options here -->
+                {% elif column == 'Medical History' %}
+                <option value="Diabetes">Diabetes</option>
+                <option value="Hypertension">Hypertension</option>
+                <option value="Asthma">Asthma</option>
+                <!-- Add more medical history options here -->
+                {% elif column == 'Psychiatric History' %}
+                <option value="Depressive disorder">Depressive disorder</option>
+                <option value="Anxiety disorder">Anxiety disorder</option>
+                <option value="Bipolar disorder">Bipolar disorder</option>
+                <!-- Add more psychiatric history options here -->
+                {% elif column == 'Coping Mechanisms' %}
+                <option value="Meditation">Meditation</option>
+                <option value="Exercise">Exercise</option>
+                <option value="Socializing">Socializing</option>
+                <!-- Add more coping mechanism options here -->
+                {% elif column == 'Lifestyle Factors' %}
+                <option value="Sleep quality">Sleep quality</option>
+                <option value="Diet">Diet</option>
+                <option value="Stress management">Stress management</option>
+                <!-- Add more lifestyle factor options here -->
+                {% endif %}
+            </select>
+        </div>
+        {% endfor %}
+        <button type="submit">Predict</button>
+    </form>
+</body>
+</html>
+
+

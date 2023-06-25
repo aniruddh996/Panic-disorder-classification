@@ -11,5 +11,3 @@ To further enhance the accuracy and usability of the classification model, I dev
 
 By sharing this project, I aim to contribute to the broader understanding and detection of panic disorder. Together, we can work towards improving mental health assessment methodologies and facilitating early interventions for individuals in need.
 
-Feel free to adapt and incorporate this description into your LinkedIn post, showcasing your dedication to mental health research and the innovative approaches you've employed in this project.
-
